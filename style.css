@@ -1,0 +1,261 @@
+/* ============================
+    MASTER STYLESHEET - PINK OVERLOAD FINAL
+============================ */
+:root {
+    --bg-pink: #FFF5FA;
+    --container-pink: #FFC2E2;
+    --box-pink: #FFE5F1;
+    --accent-pink: #FF69B4;
+    --text-dark: #8A2E6B;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: var(--text-dark);
+    cursor: url('images/sparkle.png'), auto;
+
+    /* PENGATURAN BACKGROUND BARU */
+    background-repeat: no-repeat; /* Jangan diulang-ulang */
+    background-attachment: fixed; /* Tetap di posisi saat scroll */
+    background-position: center; /* Posisikan di tengah */
+    background-size: cover; /* Tutupi seluruh layar */
+
+    position: relative;
+    z-index: 0;
+}
+
+/* STYLE BARU UNTUK PARTIKEL GLITTER */
+.glitter-particle {
+    position: fixed;
+    pointer-events: none; /* PENTING! */
+    border-radius: 50%;
+    z-index: 9999;
+    animation: fade-out 1s forwards;
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: -1;
+}
+
+/* (Sisa kode CSS lainnya sama persis seperti sebelumnya) */
+
+/* BACKGROUNDS */
+body.home-bg { background-image: url('images/background.gif'); background-color: var(--bg-pink); }
+body.vision-bg { background-image: url('images/vision.gif'); background-color: #f5fff5; }
+body.about-bg { background-image: url('images/about.gif'); background-color: #fffaf5; }
+body.guestbook-bg { background-image: url('images/guestbook.gif'); background-color: #fffaf5; }
+
+/* CONTAINER & LAYOUT */
+.container { width: 980px; margin: 20px auto; background-color: var(--container-pink); border: 5px inset var(--accent-pink); padding: 15px; box-shadow: 10px 10px 0px rgba(0,0,0,0.5); }
+.main-layout { display: flex; margin-top: 15px; gap: 15px; }
+.main-content { flex: 3; padding: 20px; border: 3px inset var(--accent-pink); background-color: var(--box-pink); }
+.sidebar { flex: 1; padding: 20px; text-align: center; border: 3px inset var(--accent-pink); background-color: var(--box-pink); }
+.sidebar-box { padding: 10px; margin-bottom: 15px; border: 2px outset var(--accent-pink); background-color: var(--container-pink); transition: transform 0.2s ease; }
+.sidebar-box:hover { transform: scale(1.02); }
+
+/* HEADER & NAVIGATION */
+/* HEADER & NAVIGATION (UPGRADED!) */
+.header { 
+    border: 3px outset var(--accent-pink); 
+    background-color: var(--box-pink); 
+    padding: 10px; 
+    text-align: center; 
+    overflow: hidden; 
+}
+
+.navigation { 
+    padding: 10px 5px; 
+    margin-top: 15px; 
+    border: 3px inset var(--accent-pink); 
+    background-color: var(--box-pink);
+    
+    /* PENGATURAN FLEXBOX */
+    display: flex;                 /* Mengaktifkan mode flexbox */
+    justify-content: space-evenly; /* INI YANG DIUBAH: Membuat item merata dengan jarak seimbang */
+    align-items: center;           /* Membuat item rata tengah secara vertikal */
+}
+
+.navigation a { 
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--text-dark);
+    text-decoration: none;
+    background-color: var(--bg-pink);
+    border: 3px outset var(--accent-pink);
+    padding: 8px 15px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.navigation a:hover {
+    background-color: var(--accent-pink);
+    color: white;
+    border-style: inset;
+    transform: scale(1.05);
+}
+
+/* MARQUEE TEXT ANIMATION */
+.marquee { font-family: 'Press Start 2P', cursive; font-size: 24px; color: var(--text-dark); text-shadow: 2px 2px 0px #fff; white-space: nowrap; animation: marquee-scroll 15s linear infinite; }
+.marquee span { display: inline-block; padding-left: 100%; }
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+/* ELEMENTS & TYPOGRAPHY */
+h2 { font-family: 'Press Start 2P', cursive; font-size: 16px; color: var(--text-dark); animation: text-flicker 3s infinite alternate; }
+@keyframes text-flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+a { color: var(--accent-pink); text-decoration: underline; font-weight: bold; }
+.profile-pic { width: 150px; border: 5px double #fff; margin-bottom: 10px; animation: float 4s ease-in-out infinite; }
+.divider {
+    display: block; /* Memastikan gambar bisa di-center */
+    max-width: 50%; /* Atur ukuran maksimal, misal 50% dari lebar kontainer */
+    height: auto;   /* Menjaga rasio gambar agar tidak gepeng */
+    margin: 20px auto; /* Memberi jarak atas/bawah dan membuatnya ke tengah */
+}
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* STICKERS & DRAG NOTICE */
+.sticker { position: absolute; width: 80px; transition: transform 0.2s ease-out; user-select: none; z-index: 10; }
+.sticker:hover { transform: scale(1.15) rotate(5deg); }
+.sticker:active { transform: scale(1.2) rotate(3deg); }
+.drag-notice { position: absolute; background-color: var(--accent-pink); color: white; padding: 5px 10px; border: 3px outset #fff; border-radius: 10px; text-align: center; font-family: 'Press Start 2P', cursive; font-size: 10px; z-index: 100; opacity: 0; visibility: hidden; transition: opacity 0.2s ease-in-out, top 0.5s ease, left 0.5s ease; pointer-events: none; }
+.drag-notice.visible { opacity: 1; visibility: visible; }
+.drag-notice p { margin: 0; }
+
+/* GUESTBOOK FRAME */
+.guestbook-frame { position: relative; padding: 15px; margin-top: 20px; border: 3px dashed var(--accent-pink); background-color: var(--box-pink); }
+.cbox-wrapper { background: #fff; border: 5px inset var(--accent-pink); padding: 5px; }
+.deco-gif { position: absolute; width: 50px; z-index: 5; }
+
+/* KONTEN BARU, ABOUT, VISION BOARD */
+.fave-list p { background-color: var(--container-pink); border: 2px dashed var(--accent-pink); padding: 8px; margin-bottom: 10px; }
+.music-player .equalizer-gif { width: 100px; margin-bottom: 10px; }
+.music-player .song-title { font-weight: bold; font-size: 20px; color: var(--accent-pink); margin: 0; }
+.music-player .song-artist { font-size: 16px; margin: 0; }
+.blinkie-collection { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; align-items: center; padding-top: 5px; }
+.blinkie-collection img { height: 20px; }
+.about-me-page { text-align: center; }
+.my-photo { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 8px double white; margin-bottom: 20px; }
+.about-section { margin: 25px 0; text-align: justify; }
+.about-section h3 { text-align: center; font-family: 'Press Start 2P', cursive; }
+.social-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
+.social-links a { font-family: 'Press Start 2P', cursive; font-size: 14px; color: var(--text-dark); text-decoration: none; background-color: var(--container-pink); padding: 10px; border: 2px outset var(--accent-pink); }
+.social-links a:hover { background-color: var(--accent-pink); color: white; }
+.vision-board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 10px; }
+.vision-item { background-color: var(--container-pink); border: 3px outset var(--accent-pink); padding: 10px; text-align: center; transition: transform 0.2s ease; }
+.vision-item:hover { transform: scale(1.05) rotate(2deg); }
+.vision-item img { width: 100%; height: 150px; object-fit: cover; border: 4px double white; }
+.vision-item p { margin: 10px 0 0 0; font-family: 'Press Start 2P', cursive; font-size: 12px; color: var(--text-dark); }
+
+/* KONTROL AUDIO */
+.audio-controls-box .music-box-info { font-size: 14px; margin-bottom: 5px; }
+.audio-controls-box .button-info { font-size: 12px; opacity: 0.8; margin-top: -5px; margin-bottom: 10px; }
+.audio-controls-box h2 { margin-bottom: 10px; }
+.controls-wrapper { display: flex; align-items: center; justify-content: center; gap: 10px; }
+#play-pause-btn { background: none; border: 2px outset var(--accent-pink); background-color: var(--box-pink); color: var(--text-dark); font-family: 'VT323', monospace; font-size: 20px; width: 40px; height: 30px; padding-bottom: 4px; }
+#play-pause-btn:hover { background-color: var(--accent-pink); color: white; }
+#volume-slider { -webkit-appearance: none; appearance: none; width: 120px; height: 8px; background: var(--box-pink); border: 2px inset var(--accent-pink); outline: none; }
+#volume-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; background: var(--accent-pink); border: 2px outset white; }
+#volume-slider::-moz-range-thumb { width: 15px; height: 15px; background: var(--accent-pink); border: 2px outset white; }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1000px) { .container { width: 95%; box-shadow: 5px 5px 0px rgba(0,0,0,0.5); } .main-layout { flex-direction: column; } .sticker, .drag-notice { display: none; } }
+
+/* ============================
+    CHAT BUBBLE STYLES (v2)
+============================ */
+#chat-bubble {
+    position: fixed;
+    top: 25px;      /* Diubah ke atas */
+    left: 25px;     /* Diubah ke kiri */
+    background-color: var(--box-pink);
+    border: 3px outset var(--accent-pink);
+    padding: 15px 20px;
+    max-width: 200px;
+    font-family: 'VT323', monospace;
+    font-size: 19px;
+    color: var(--text-dark);
+    z-index: 1000;
+    
+    /* State awal (sembunyi) untuk animasi */
+    opacity: 0;
+    transform: translateY(-20px); /* Animasi muncul dari atas */
+    visibility: hidden;
+    transition: all 0.5s ease-out;
+}
+
+/* State saat muncul */
+#chat-bubble.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Segitiga kecil di atas bubble */
+#chat-bubble::after {
+    content: '';
+    position: absolute;
+    top: -13px; /* Posisikan di atas bubble */
+    left: 30px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--accent-pink); /* Panah mengarah ke atas */
+}
+
+#chat-bubble p {
+    margin: 0;
+    padding-right: 15px; /* Beri jarak agar teks tidak nabrak tombol close */
+}
+
+/* Tombol Close (×) */
+#close-bubble {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    font-size: 28px;
+    font-family: monospace;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+#close-bubble:hover {
+    color: var(--accent-pink);
+}
+
+/* Style khusus untuk memperbesar GIF Town Hall */
+.townhall-gif {
+    display: block;
+    width: 120%; /* Dibuat lebih besar, 90% dari lebar kontainer */
+    height: auto;
+    margin: 20px auto; /* Otomatis ke tengah */
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1000px) {
+    .container { width: 95%; ... }
+    .main-layout { flex-direction: column; }
+    .sticker, .drag-notice, #custom-cursor { display: none; }
+}
+
+.ini-gif {
+    width: 100%; /* <-- UBAH ANGKA INI untuk mengatur ukuran */
+    height: auto; /* Biarkan auto agar gambar tidak gepeng */
+    display: block; /* Wajib ada agar margin auto berfungsi */
+    margin: 25px auto; /* Memberi jarak atas-bawah & membuatnya ke tengah */
+}s
