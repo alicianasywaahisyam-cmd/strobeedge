@@ -258,4 +258,112 @@ a { color: var(--accent-pink); text-decoration: underline; font-weight: bold; }
     height: auto; /* Biarkan auto agar gambar tidak gepeng */
     display: block; /* Wajib ada agar margin auto berfungsi */
     margin: 25px auto; /* Memberi jarak atas-bawah & membuatnya ke tengah */
-}s
+}
+
+/* ============================
+    WELCOME POP-UP STYLES
+============================ */
+#welcome-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Latar belakang gelap transparan */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'VT323', monospace;
+}
+
+.popup-content {
+    background-color: var(--container-pink);
+    border: 5px outset var(--accent-pink);
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+    animation: float 5s ease-in-out infinite; /* Biar agak gerak-gerak */
+}
+
+.popup-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px double white;
+    margin-bottom: 15px;
+}
+
+.popup-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.popup-buttons button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--text-dark);
+    text-decoration: none;
+    background-color: var(--bg-pink);
+    border: 3px outset var(--accent-pink);
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.popup-buttons button:hover {
+    background-color: var(--accent-pink);
+    color: white;
+    border-style: inset;
+    transform: scale(1.05);
+}
+
+/* ============================
+    EXPANDED STORY STYLES
+============================ */
+
+/* Style for the new GIF inside the story */
+.story-gif {
+    display: block;
+    max-width: 250px; /* Atur ukuran GIF portalmu */
+    margin: 20px auto;
+    border: 4px double var(--accent-pink);
+}
+
+/* Container for the status section to align GIF and text */
+.town-status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Jarak antara GIF dan kotak status */
+    margin-top: 25px;
+    background-color: var(--box-pink);
+    border: 3px inset var(--accent-pink);
+    padding: 15px;
+}
+
+/* Make the status box flexible */
+.town-status {
+    flex-grow: 1; /* Biarkan kotak teks mengisi sisa ruang */
+    margin-top: 0; /* Hapus margin atas karena sudah diatur oleh container */
+}
+
+/* Style for the new status GIF */
+.status-gif {
+    width: 100px; /* Atur ukuran GIF 'building' kamu */
+    height: 100px;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .town-status-container {
+        flex-direction: column;
+    }
+}

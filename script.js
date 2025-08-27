@@ -141,5 +141,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- KODE UNTUK POP-UP DAN MUSIK ---
+    const welcomePopup = document.getElementById('welcome-popup');
+    const enterBtn = document.getElementById('enter-btn');
+    const backgroundMusic = document.getElementById('background-music');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const volumeSlider = document.getElementById('volume-slider');
 
+    // Atur volume awal
+    backgroundMusic.volume = 0.5;
+    volumeSlider.value = 0.5;
+
+    // Saat tombol "Enter" di pop-up diklik
+    enterBtn.addEventListener('click', () => {
+        welcomePopup.style.display = 'none'; // Sembunyikan pop-up
+        backgroundMusic.play(); // Putar musik
+        playPauseBtn.textContent = '❚❚'; // Ubah ikon tombol jadi pause
+    });
+    
+    // --- KODE UNTUK KONTROL MUSIK DI SIDEBAR ---
+    playPauseBtn.addEventListener('click', () => {
+        if (backgroundMusic.paused) {
+            backgroundMusic.play();
+            playPauseBtn.textContent = '❚❚';
+        } else {
+            backgroundMusic.pause();
+            playPauseBtn.textContent = '►';
+        }
+    });
+
+    volumeSlider.addEventListener('input', () => {
+        backgroundMusic.volume = volumeSlider.value;
+    });
+
+    // --- (Sisipkan kode untuk sticker draggable dan lainnya di sini) ---
+    // ... contoh:
+    const stickers = document.querySelectorAll('.sticker');
+    // ... (sisa kode sticker kamu)
+
+});
 
