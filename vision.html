@@ -32,18 +32,24 @@
                         <p>
                             It was her little secret ritual. But one day, something magical happened. As the dreamy music started to play, her computer screen began to glow with a soft, pink light. The pixels on the screen stopped being boring and started to dance, swirling around like tiny, sparkling fireflies. It wasn't a computer anymore—it was a window.
                         </p>
-                        
-
                         <p>
                             Peeking through, she saw a perfect, cozy day playing out like a movie. A world bathed in a forever-sunset, where every little thing felt happy and safe. She realized the song wasn't just a song; it was a key. A key that let her <b>rewind</b> time and open a portal to a world made of only the best memories. And that’s how <b>Naomi's Little Town</b> was born. Welcome to the town that memory built! ♡
                         </p>
                     </div>
                 
                     <img src="images/kami1.gif" class="divider">
+
+
+                    <div class="daily-proclamation">
+                        <h2>Daily Town Proclamation 📜💖</h2>
+                        <p id="proclamation-text"></p>
+                    </div>
+
+                    <img src="images/sunnysun.gif" class="divider">
                 
                     <div class="town-projects">
                         <h2>Future Town Projects (Memory Blueprints!) 🏗️🎀</h2>
-                        <p style="text-align: center;">These are blueprints for happy moments we plan to save forever in our town's memory bank!</p>
+                        <p style=>These are blueprints for happy moments we plan to save forever in our town's memory bank!</p>
                         
                         <div class="vision-board-grid">
                              <div class="vision-item">
@@ -64,20 +70,63 @@
                             </div>
                         </div>
                     </div>
-                
+
+                    <img src="images/cats.gif" class="divider">
+
+                    <div class="town-poll-container">
+                        <h2>Town Ordinance Voting! 🗳️✨</h2>
+                        <p style=>Help the Mayor decide which memory to build next! Your vote counts!</p>
+                        <div id="poll-options">
+                            <div class="poll-option">
+                                <img src="images/cats.png" alt="Cat Cafe">
+                                <span>Build a Cozy Cat Cafe</span>
+                                <button class="vote-button" data-option="1">Vote!</button>
+                                <div class="progress-bar-container"><div class="progress-bar" id="progress-1"></div></div>
+                                <span class="vote-count" id="count-1">0 vote</span>
+                            </div>
+                            <div class="poll-option">
+                                <img src="images/star.png" alt="Starlight Observatory">
+                                <span>Open a Starlight Observatory</span>
+                                <button class="vote-button" data-option="2">Vote!</button>
+                                <div class="progress-bar-container"><div class="progress-bar" id="progress-2"></div></div>
+                                <span class="vote-count" id="count-2">0 vote</span>
+                            </div>
+                            <div class="poll-option">
+                                <img src="images/flower.png" alt="Magical Garden">
+                                <span>Plant a Magical Flower Garden</span>
+                                <button class="vote-button" data-option="3">Vote!</button>
+                                <div class="progress-bar-container"><div class="progress-bar" id="progress-3"></div></div>
+                                <span class="vote-count" id="count-3">0 vote</span>
+                            </div>
+                        </div>
+                        <p id="vote-thanks" style="text-align: center; display: none; margin-top: 15px;">Thank you for helping our town grow! ♡</p>
+                    </div>
+
+                    <img src="images/garden.gif" class="divider">
+
+
+                    <div class="memory-jar-container">
+                        <h2>Memory & Wish Jar ✨</h2>
+                        <p style="text-align: center;">Got a happy memory or a sweet wish? Place it in the jar so we can keep it safe forever!</p>
+                        <div class="jar-interaction">
+                             <img src="images/jar.png" alt="Memory Jar" class="memory-jar-gif">
+                             <textarea id="memory-text" placeholder="Type a happy little thought here..."></textarea>
+                        </div>
+                        <button id="submit-memory-btn">Add to Jar ♡</button>
+                    </div>
+
                     <div class="town-status-container">
                         <div class="town-status">
                             <h2>Current Development Status!</h2>
                             <ul>
                                 <li><strong>Current Mission:</strong> Exploring the 'real world' (internship) to find new, happy moments worth saving!</li>
                                 <li><strong>Next Memory to Save:</strong> The mid-semester break! We're going to capture all its relaxing vibes for a new town festival.</li>
-                                <li><strong>Memory Sync Status:</strong> ▢▢ (60%) - Syncing requires lots of cozy games & music!</li>
+                                <li><strong>Memory Sync Status:</strong> ▓▓▓▓▓▓░░░░ (60%) - Syncing requires lots of cozy games & music!</li>
                             </ul>
                         </div>
                     </div>
                 
                 </div>
-
             </div>
         </div>
     </div>
@@ -96,6 +145,10 @@
         <span id="close-bubble">&times;</span>
         <p>Psst! This is the town's official board. We save all the best moments here so they never fade away. ♡</p>
     </div>
+
+
+
+    <audio id="hover-sound" src="sounds/hover.wav" preload="auto"></audio>
     
     <script src="script.js"></script>
 </body>
